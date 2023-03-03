@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="container">
+        <div class="row ">
+          {% for e in list %}
+          
+          <div class="col-6 col-sm-3 col-md-offset-md-2 d-flex align-items-stretch py-3" >
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top " src="{{e.image.url}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{ e.title }}</h5>
+                <p class="card-text">{{ descripton }}</p>
+                <a href="{% url 'delete_event' e.id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'update_event' e.id %}" class="btn btn-primary">Update</a>
+                <a href="{% url 'DetailEventView' e.id %}" class="btn btn-info">Details</a>
+              </div>
+                
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+         </div>
+        
+
+{% endblock %}
+
